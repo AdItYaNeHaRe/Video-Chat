@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useUser } from "@clerk/nextjs";
 import { useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useRouter } from "next/navigation";
@@ -56,7 +56,7 @@ const PersonalRoom = () => {
   const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${meetingId}?personal=true`;
 
   return (
-    <section className="flex size-full flex-col gap-10 text-white">
+    <section className="flex size-full flex-col gap-10 text-white-1">
       <h1 className="text-xl font-bold lg:text-3xl">Personal Meeting Room</h1>
       <div className="flex w-full flex-col gap-8 xl:max-w-[900px]">
         <Table title="Topic" description={`${user?.username}'s Meeting Room`} />
@@ -76,6 +76,7 @@ const PersonalRoom = () => {
             });
           }}
         >
+          <Image src="/icons/copy.svg" alt="feature" width={20} height={20}/> &nbsp;
           Copy Invitation
         </Button>
       </div>
